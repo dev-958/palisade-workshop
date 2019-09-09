@@ -6,7 +6,7 @@ replicaCount: 1
 
 configservice:
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     repository: example_config-service
     tag: latest
   resources:
@@ -20,7 +20,7 @@ configservice:
 
 dataservice:
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     repository: example_data-service
     tag: latest
   resources:
@@ -34,7 +34,7 @@ dataservice:
 
 etcd:
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     repository: example_etcd
     tag: latest
   resources:
@@ -48,7 +48,7 @@ etcd:
 
 palisadeservice:
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     repository: example_palisade-service
     tag: latest
   resources:
@@ -62,7 +62,7 @@ palisadeservice:
 
 policyservice:
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     repository: example_policy-service
     tag: latest
   resources:
@@ -76,7 +76,7 @@ policyservice:
 
 resourceservice:
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     repository: example_resource-service
     tag: latest
   resources:
@@ -90,7 +90,7 @@ resourceservice:
 
 userservice:
   image:
-    pullPolicy: Always
+    pullPolicy: IfNotPresent
     repository: example_user-service
     tag: latest
   resources:
