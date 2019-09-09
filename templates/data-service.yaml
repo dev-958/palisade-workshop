@@ -42,22 +42,20 @@ spec:
           failureThreshold: 5
           periodSeconds: 60
           timeoutSeconds: 10
-          readinessProbe:
+        readinessProbe:
             httpGet:
               path: /data/v1/status
               port: 8080
             failureThreshold: 5
             periodSeconds: 60
             timeoutSeconds: 10
-          resources:
+        resources:
             {{- toYaml .Values.dataservice.resources | nindent 12 }}
         volumeMounts:
-          - name: data
+          - name: palisade-pv-storage
             mountPath: /data
       restartPolicy: Always
       volumes:
-      - name: data
-        azureFile:
-          secretName: data-share-secret
-          shareName: data
-          readOnly: true
+      - name: palisade-pv-storage
+        persistentVolumeClaim:
+          claimName: palisade-pv-claim
