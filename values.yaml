@@ -30,7 +30,7 @@ dataservice:
     limits:
       cpu: 0.5
       memory: 10Gi
-  replicas: 5
+  replicas: 1
 
 etcd:
   image:
