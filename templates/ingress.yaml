@@ -1,24 +1,27 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: name-virtual-host-ingress
+    name: name-virtual-host-ingress
+    annotations:
+        ingress.kubernetes.io/rewrite-target: /
+        nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  rules:
-    - host: config-service
-      http:
-        paths:
-          - backend:
-              serviceName: config-service
-              servicePort: 8080
-    - host: palisade-service
-      http:
-        paths:
-          - backend:
-              serviceName: palisade-service
-              servicePort: 8080
-    - host: data-service
-      http:
-        paths:
-          - backend:
-              serviceName: data-service
-              servicePort: 8080
+    rules:
+        - http:
+              paths:
+                  - path: /config
+                    backend:
+                        serviceName: config-service
+                        servicePort: 8080
+        - http:
+              paths:
+                  - path: /palisade
+                    backend:
+                        serviceName: palisade-service
+                        servicePort: 8080
+        - http:
+              paths:
+                  - path: /data
+                    backend:
+                        serviceName: data-service
+                        servicePort: 8080
