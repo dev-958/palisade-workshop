@@ -104,6 +104,7 @@ userservice:
 
 configureexample:
   inputfilepath: /data
+  hostpath: /mnt/c/data
 
 image:
   repository: nginx
