@@ -12,5 +12,6 @@ spec:
       containers:
       - image: example_configure-example:latest
         name: configure-example
+        imagePullPolicy: "{{ .Values.palisadeservice.image.pullPolicy }}"
         command: ["/tmp/waitForHost.sh", "http://policy-service:8080/policy/v1/status", "java", "-cp", "/tmp/example-model-*-shaded.jar", "-Dpalisade.rest.config.path=/tmp/configRest.json", "uk.gov.gchq.palisade.example.config.ExampleConfigurator", " {{ .Values.configureexample.inputfilepath }} "]
       restartPolicy: Never
